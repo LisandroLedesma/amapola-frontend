@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar color="primary">Menu</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item [routerLink]="['home']">Inicio</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+            <span>Amapola</span>
+            <span class="spacer"></span>
+            <a class="btn btn-sm btn-primary" [routerLink]="['login']">Iniciar Sesión</a>
+        </mat-toolbar>
+        <!-- <nav class="navbar navbar-expand-lg navbar-ligth bg-light" style="height: 65px;">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+                <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+              </button>
+            <a class="navbar-brand" [routerLink]="['home']">
+                Imágen del Logo
+            </a>
+            <span class="navbar-brand">Amapola</span>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                </ul>
+            </div>
+            <ul class="navbar-nav navbar-right">
+                <a class="btn btn-primary mr-2" [routerLink]="['login']">Iniciar Sesión</a>
+            </ul>
+        </nav> -->
+        <ng-content></ng-content>
+    </mat-sidenav-content>
+</mat-sidenav-container>
