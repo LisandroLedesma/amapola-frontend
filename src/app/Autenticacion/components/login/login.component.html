@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="container my-5">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="iniciarSesion()">
+        <div class="row animate__animated animate__fadeInLeft">
+            <div class="col-md-5 mx-auto">
+                <div id="first">
+                    <div class="myform form">
+                        <div class="logo mb-3">
+                            <div class="col-md-12 text-center">
+                                <h1>Iniciar Sesión</h1>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Nombre de usuario</label>
+                            <input type="text" class="form-control" formControlName="username" placeholder="Ingrese su nombre de usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Contraseña</label>
+                            <input type="password" class="form-control" formControlName="contraseña" placeholder="Ingrese su contraseña">
+                        </div>
+
+                        <div class="col-md-12 text-center ">
+                            <hr>
+                            <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Iniciar Sesión</button>
+                        </div>
+
+                        <div class="login-failed" *ngIf='this.hayError'>
+                            <p class="login-failed-text">Error al iniciar sesión. Verifica las credenciales e intenta nuevamente.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
