@@ -12,7 +12,17 @@
       </button>
             <span>Amapola</span>
             <span class="spacer"></span>
-            <a class="btn btn-sm btn-primary" [routerLink]="['login']">INICIAR SESIÓN</a>
+            <div *ngIf="!estaLogueado">
+                <a class="login" [routerLink]="['login']">Iniciar sesión</a>
+            </div>
+            <div *ngIf="estaLogueado" ngbDropdown class="float-right">
+                <button class="userdetails" ngbDropdownToggle>
+                    {{username}}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem (click)="logout()">Cerrar sesión</button>
+                </div>
+            </div>
         </mat-toolbar>
         <!-- <nav class="navbar navbar-expand-lg navbar-ligth bg-light" style="height: 65px;">
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">

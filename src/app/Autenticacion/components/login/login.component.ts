@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { throwError } from 'rxjs';
+import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 import { LoginRequest } from '../../modelos/login-request.class';
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private toastr: ToastrService,
-              private authService: AuthService) {
+              private authService: AuthService,
+              private router: Router) {
     this.loginRequest = new LoginRequest();
     this.hayError = false;
   }
@@ -49,7 +51,9 @@ export class LoginComponent implements OnInit {
 
     this.authService.login(this.loginRequest).subscribe( response => {
       this.toastr.success('Sesión iniciada con éxito');
+      this.hayError = false;
       Swal.close();
+      this.router.navigate(['home']);
     }, err => {
       Swal.close();
       this.toastr.error('Error al iniciar sesión');
