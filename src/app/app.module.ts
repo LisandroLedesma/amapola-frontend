@@ -11,18 +11,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { LoginComponent } from './Autenticacion/components/login/login.component';
 import { HomeComponent } from './Shared/home/home.component';
+import { BolsaComponent } from './Prudcto/Bolsa/bolsa/bolsa.component';
+import { FormBolsaComponent } from './Prudcto/Bolsa/form-bolsa/form-bolsa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BolsaComponent,
+    FormBolsaComponent
   ],
   imports: [
     BrowserModule,

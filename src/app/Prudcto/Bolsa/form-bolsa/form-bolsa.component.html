@@ -1,0 +1,26 @@
+<h1> Nueva bolsa: </h1>
+<hr>
+<form [formGroup]="form" (ngSubmit)="guardar()">
+    <div class="form-group col-md-2">
+        <label for="id"> Id </label>
+        <input type="number" name="id" id="id" formControlName="id">
+        <span class="text-danger" *ngIf="idNoValido"> Id inválido </span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="nombre"> Nombre </label>
+        <input type="text" name="nombre" id="nombre" formControlName="nombre">
+        <span class="text-danger" *ngIf="nombreNoValido"> Nombre inválido </span>
+    </div>
+    <div class="form-group col-md-2">
+        <label for="capacidad"> Capacidad </label>
+        <input type="number" name="capacidad" id="capacidad" formControlName="capacidad">
+        <span class="text-info"> La capacidad debe estar en gramos </span>
+        <span class="text-danger" *ngIf="capacidadNoValido"> Capacidad inválida </span>
+    </div>
+    <button *ngIf="!bolsa.id else elseBlock" type="submit" class="btn btn-primary"> Crear </button>
+    <ng-template #elseBlock>
+        <button class="btn btn-primary" type="button" (click)="editar()"> Editar </button>
+    </ng-template>
+</form>
+
+<hr>
